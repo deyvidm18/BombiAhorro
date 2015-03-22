@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget32"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background2">
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Debes tocar a bombillin en los hoyos, cada vez que sea aplastado tendras un punto.,
+tienes 3 vidas para ello, si por el contrario tocas a la mariposa perderás una vida, Juega!!!"
+        android:textColor="#E7AB4D"
+        android:textSize="15sp"
+        android:textStyle="bold"></TextView>
+</RelativeLayout>

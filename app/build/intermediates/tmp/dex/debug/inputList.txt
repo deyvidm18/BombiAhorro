@@ -1,0 +1,2 @@
+/Users/mac/AndroidstudioProjects/BombiAhorro/app/build/intermediates/classes/debug
+/Users/mac/AndroidstudioProjects/BombiAhorro/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0-939011ab5992f7d9bd0a3356c098dcbb11a9f5aa.jar

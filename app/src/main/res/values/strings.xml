@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_calculate">Calcular</string>
+    <string name="menu_history">Historial</string>
+    <string name="menu_tips">Tips</string>
+    <string name="menu_game">Juego</string>
+    <string name="app_name"></string>
+    <string name="action_settings">Settings</string>
+    <string name="title_section1">Iluminación</string>
+    <string name="title_section2">Refrigeración</string>
+    <string name="title_section3">Diversión</string>
+    <string name="title_section4">Cocina</string>
+    <string name="title_section5">Mantenimiento</string>
+    <string name="calculate">Calcular </string>
+    <string name="time">Horas </string>
+    <string name="count">Cantidad </string>
+    <string name="tips">Tips </string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hello">Hello World</string>
+    <string name="Score">Puntos: 0 </string>
+    <string name="Life">Vidas: 3 </string>
+    <string name="restart">reiniciar</string>
+    <string name="quit">salir</string>
+    <string name="juego">juego</string>
+    <string name="title_activity_history">HistoryActivity</string>
+
+</resources>
