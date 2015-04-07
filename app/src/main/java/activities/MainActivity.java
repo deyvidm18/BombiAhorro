@@ -12,13 +12,9 @@ import fragment.Calculate;
 import fragment.History;
 import fragment.ScreenLoader;
 import fragment.Tips;
+import model.Constants;
 
 public class MainActivity extends FragmentActivity {
-
-    private static final String CALCULATE = "Calculate";
-    private static final String TIPS = "Tips";
-    private static final String HISTORY = "History";
-    private static final String SCREEN_LOADER = "ScreenLoader";
     private FragmentTransaction transaction;
     private ScreenLoader screenLoaderFragment;
     private Calculate calculateFragment;
@@ -29,31 +25,31 @@ public class MainActivity extends FragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_calculate: {
-                if (getSupportFragmentManager().findFragmentByTag(CALCULATE) == null
-                        || !getSupportFragmentManager().findFragmentByTag(CALCULATE).isVisible()) {
+                if (getSupportFragmentManager().findFragmentByTag(Constants.CALCULATE) == null
+                        || !getSupportFragmentManager().findFragmentByTag(Constants.CALCULATE).isVisible()) {
                     transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragmentPrincipal, calculateFragment, CALCULATE);
-                    transaction.addToBackStack(CALCULATE);
+                    transaction.replace(R.id.fragmentPrincipal, calculateFragment, Constants.CALCULATE);
+                    transaction.addToBackStack(Constants.CALCULATE);
                     transaction.commit();
                 }
                 break;
             }
             case R.id.menu_tips: {
-                if (getSupportFragmentManager().findFragmentByTag(TIPS) == null
-                        || !getSupportFragmentManager().findFragmentByTag(TIPS).isVisible()) {
+                if (getSupportFragmentManager().findFragmentByTag(Constants.TIPS) == null
+                        || !getSupportFragmentManager().findFragmentByTag(Constants.TIPS).isVisible()) {
                     transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragmentPrincipal, tipsFragment, TIPS);
-                    transaction.addToBackStack(TIPS);
+                    transaction.replace(R.id.fragmentPrincipal, tipsFragment, Constants.TIPS);
+                    transaction.addToBackStack(Constants.TIPS);
                     transaction.commit();
                 }
                 break;
             }
             case R.id.menu_history: {
-                if (getSupportFragmentManager().findFragmentByTag(HISTORY) == null
-                        || !getSupportFragmentManager().findFragmentByTag(HISTORY).isVisible()) {
+                if (getSupportFragmentManager().findFragmentByTag(Constants.HISTORY) == null
+                        || !getSupportFragmentManager().findFragmentByTag(Constants.HISTORY).isVisible()) {
                     transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragmentPrincipal, historyFragment, HISTORY);
-                    transaction.addToBackStack(HISTORY);
+                    transaction.replace(R.id.fragmentPrincipal, historyFragment, Constants.HISTORY);
+                    transaction.addToBackStack(Constants.HISTORY);
                     transaction.commit();
                 }
                 break;
@@ -74,15 +70,15 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.main_activity);
         transaction = getSupportFragmentManager().beginTransaction();
         screenLoaderFragment = new ScreenLoader();
-        transaction.add(R.id.fragmentPrincipal, screenLoaderFragment, SCREEN_LOADER).commit();
+        transaction.add(R.id.fragmentPrincipal, screenLoaderFragment, Constants.SCREEN_LOADER).commit();
         Thread screenTimer = new Thread() {
             public void run() {
                 try {
                     sleep(3000);
                     calculateFragment = new Calculate();
                     transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragmentPrincipal, calculateFragment, CALCULATE);
-                    transaction.addToBackStack(CALCULATE);
+                    transaction.replace(R.id.fragmentPrincipal, calculateFragment, Constants.CALCULATE);
+                    transaction.addToBackStack(Constants.CALCULATE);
                     transaction.commit();
                 } catch (InterruptedException e) {
                     // TODO Manejo de Excepciones

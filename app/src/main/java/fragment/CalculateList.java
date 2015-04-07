@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,11 +18,21 @@ import java.util.List;
 
 import dao.CalculateDAO;
 import model.CalculateModel;
+import view.DialogCheckBox;
 
 public class CalculateList extends ListFragment {
 
     private CalculateDAO calculateDAO;
     private List<CalculateModel> values;
+    private CompoundButton.OnCheckedChangeListener onCheckedCalculate = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (isChecked) {
+                DialogCheckBox df = new DialogCheckBox();
+                df.show(getFragmentManager(), "TITULO");
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +60,8 @@ public class CalculateList extends ListFragment {
             LayoutInflater inflater = context.getLayoutInflater();
             View item = inflater.inflate(R.layout.calculate_element_list, null);
             ((TextView) item.findViewById(R.id.calculate_item_name)).setText(values.get(position).getName());
-            ((ImageView) item.findViewById(R.id.calculate_item_image)).setImageDrawable(getResources().getDrawable(getResources().getIdentifier(values.get(position).getDrawable(), "drawable", getActivity().getPackageName())));
+            ((ImageView) item.findViewById(R.id.calculate_item_image)).setImageResource(getResources().getIdentifier(values.get(position).getDrawable(), "drawable", getActivity().getPackageName()));
+            ((CheckBox) item.findViewById(R.id.calculate_item_checkBox)).setOnCheckedChangeListener(onCheckedCalculate);
             return (item);
         }
     }

@@ -1,22 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/holo_blue_light"
+    android:orientation="horizontal"
+    android:padding="5dip">
 
-    <ImageView
-        android:id="@+id/calculate_item_image"
+    <!--  CONTENEDOR DE LA IMAGEN -->
+    <LinearLayout
+        android:id="@+id/calculate_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:padding="3dip">
 
+        <ImageView
+            android:id="@+id/calculate_item_image"
+            android:layout_width="50dip"
+            android:layout_height="50dip" />
 
+    </LinearLayout>
+
+    <!-- TITULO -->
     <TextView
         android:id="@+id/calculate_item_name"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:textColor="#2DAAE1"
-        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/calculate_image"
+        android:textColor="#040404"
+        android:textSize="18dip"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <!-- CONSUMO -->
+    <TextView
+        android:id="@+id/calculate_item_watts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dip"
+        android:gravity="right"
+        android:text="5:45"
+        android:textColor="#ff0417ff"
+        android:textSize="14dip"
         android:textStyle="bold" />
 
-</LinearLayout>
+    <CheckBox
+        android:id="@+id/calculate_item_checkBox"
+        style="@style/AppTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+
+</RelativeLayout>

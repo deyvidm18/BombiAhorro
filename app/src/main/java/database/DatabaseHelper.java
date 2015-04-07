@@ -27,11 +27,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Calculate table insert statement
     private static final String INSERT_TABLE_CALCULATE = "INSERT INTO " + TABLE_CALCULATE + " (" + KEY_NAME + ","
             + KEY_DESCRIPTION + "," + KEY_CONSUMPTION + "," + KEY_DRAWABLE
-            + ") VALUES ('Calculadora', 'Calculadora de escritorio', '500','calculator'),"
-            + "('Video Juego', 'Consola de video juego', '700','tv'),"
-            + "('Computadora de escritorio', 'Computadora de escritorio', '1000','ventilador'),"
-            + "('Impresora', 'Impresora', '100','printer'),"
-            + "('Computadora Portatil', 'Computadora Portatil', '200','ventilador')";
+            + ") VALUES ('Bombillo Ahorrador', 'Bombillo Ahorrador', '500','icon_ahorrador'),"
+            + "('Aire Acondicionador', 'Aire Acondicionador', '700','icon_aire'),"
+            + "('Bombillo', 'Bombillo', '1000','icon_bombillo'),"
+            + "('Cafetera', 'Cafetera', '100','icon_cafetera'),"
+            + "('Cocina', 'Cocina', '200','icon_cocina'),"
+            + "('Computadora', 'Computadora', '200','icon_compu'),"
+            + "('DVD', 'DVD', '200','icon_dvd'),"
+            + "('Lavadora', 'Lavadora', '200','icon_lavadora'),"
+            + "('Licuadora', 'Licuadora', '200','icon_licuadora'),"
+            + "('Microondas', 'Microondas', '200','icon_micro'),"
+            + "('Nevera', 'Nevera', '200','icon_nevera'),"
+            + "('Consola de Juegos', 'Consola de Juegos', '200','icon_nintendo'),"
+            + "('Plancha', 'Plancha', '200','icon_plancha'),"
+            + "('Secador', 'Secador', '200','icon_secador'),"
+            + "('Secadora', 'Secadora', '200','icon_secadora'),"
+            + "('Equipo de Sonido', 'Equipo de Sonido', '200','icon_sonido'),"
+            + "('Televisor', 'Televisor', '200','icon_tele')";
     // HISTORY Table - column names
     public static final String KEY_RESULT_CONSUMPTION = "result_consumption";
     // History table create statement
@@ -45,7 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_SCORE + " REAL," + KEY_CREATED_AT
             + " DATETIME DEFAULT CURRENT_TIMESTAMP" + ")";
     // Database Version
-    private static final int DATABASE_VERSION = 12;
+    private static final int DATABASE_VERSION = 14;
     // Database Name
     private static final String DATABASE_NAME = "bombi_ahorro";
 
