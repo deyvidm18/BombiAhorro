@@ -12,7 +12,6 @@ import com.example.bombiahorro.R;
 public class Calculate extends Fragment {
     private static final String CALCULATE_LIST = "CalculateList";
     private static final String CALCULATE_DETAIL = "CalculateDetail";
-    private boolean tablet;
     private CalculateList calculateList;
     private CalculateDetail calculateDetail;
     private FragmentTransaction transaction;
@@ -25,17 +24,11 @@ public class Calculate extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.calculate_fragment, container, false);
-        if (rootView.findViewById(R.id.framelayout_contenedor_detalle) != null) {
-            tablet = true;
-            System.out.println("TABLET!");
-            calculateDetail = new CalculateDetail();
-            transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.framelayout_contenedor_detalle, calculateDetail, CALCULATE_DETAIL);
-            transaction.addToBackStack(CALCULATE_DETAIL);
-            transaction.commit();
-        } else {
-            System.out.println("SMARTPHONE!");
-        }
+        calculateDetail = new CalculateDetail();
+        transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.framelayout_contenedor_detalle, calculateDetail, CALCULATE_DETAIL);
+        transaction.addToBackStack(CALCULATE_DETAIL);
+        transaction.commit();
         calculateList = new CalculateList();
         transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.framelayout_contenedor_list, calculateList, CALCULATE_LIST);
