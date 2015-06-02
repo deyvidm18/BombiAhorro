@@ -9,6 +9,6 @@
         android:layout_height="fill_parent"
         android:contentDescription="@+id/screen_loader"
         android:scaleType="centerCrop"
-        android:src="@drawable/loadscreen2" />
+        android:src="@drawable/inicial_bombi" />
 
 </LinearLayout>

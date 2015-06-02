@@ -3,7 +3,7 @@
     android:id="@+id/widget32"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/background2">
+    android:background="@drawable/game_fondo">
 
     <TextView
         android:id="@+id/TextView01"

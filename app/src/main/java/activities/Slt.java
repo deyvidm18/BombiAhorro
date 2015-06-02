@@ -1,11 +1,13 @@
 package activities;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
@@ -13,13 +15,15 @@ import android.widget.TextView;
 
 import com.example.bombiahorro.R;
 
+import dao.GameDAO;
 import logic.ImageAdapter;
 import logic.JuegoProcess;
 import model.Bombillo;
 import model.Hueco;
 
-public class Slt extends Activity {
+public class Slt extends Fragment {
 
+    private FragmentTransaction transaction;
     private ImageAdapter ima;
     private int bombipos = -1;
     private int puntuacion = 0;
@@ -30,20 +34,34 @@ public class Slt extends Activity {
     private boolean posbombi = true;
     private Bombillo bombi = new Bombillo();
     private double prob = 0.7;
-
+    private GameDAO gameDAO;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.startgame);
-        final TextView scoreTview = (TextView) findViewById(R.id.Score);
-        final TextView lifeTview = (TextView) findViewById(R.id.Life);
-        final GridView gw = (GridView) findViewById(R.id.gridview);
+        gameDAO = new GameDAO(getActivity());
+    }
+
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        //setContentView(R.layout.startgame);
+
+        View juegoView = inflater.inflate(R.layout.startgame, container,
+                false);
+
+
+        final TextView scoreTview = (TextView) juegoView.findViewById(R.id.Score);
+        final TextView lifeTview = (TextView) juegoView.findViewById(R.id.Life);
+        final GridView gw = (GridView) juegoView.findViewById(R.id.gridview);
         step = new ChangeImage();
         Update = new Handler();
-        ima = new ImageAdapter(this);
+        ima = new ImageAdapter(getActivity());
         gw.setAdapter(ima);
 
         gw.setOnItemClickListener(new OnItemClickListener() {
+
+
             public void onItemClick(AdapterView<?> parent, final View v, int position, long id) {
                 if (bombipos == position) {
 
@@ -56,24 +74,34 @@ public class Slt extends Activity {
                                 puntuacion = puntuacion + 1;
                                 scoreTview.setText("Score: " + puntuacion);
                                 scoreTview.refreshDrawableState();
-                                if (puntuacion == 20) {
+                                if (puntuacion == 10) {
                                     setProbability(0.60);
                                     jp.setTimeToWait(700);
 
-                                } else if (puntuacion == 50) {
+                                } else if (puntuacion == 20) {
                                     setProbability(0.45);
                                     jp.setTimeToWait(500);
                                 }
                             } else {
                                 vidas = vidas - 1;
-                                lifeTview.setText("Life: " + vidas);
+                                lifeTview.setText("Vida: " + vidas);
                                 lifeTview.refreshDrawableState();
                                 if (vidas == 0) {
                                     jp.stopThread();
+                                    gameDAO.Agregar(puntuacion);
+                                    //aqui se deberia guardar la ultima puntacion y aÒadir a la lista de los 10 ptjes mas altos
+                                    //									Intent gameOverIntent = new Intent(Slt.this, GameOver.class);
+                                    //									startActivity(gameOverIntent);
+                                    transaction = getActivity().getSupportFragmentManager()
+                                            .beginTransaction();
+                                    transaction.replace(R.id.fragmentPrincipal,
+                                            ((MainActivity) getActivity()).gameoverFragment,
+                                            MainActivity.GAMEOVER);
+                                    transaction.addToBackStack(MainActivity.GAMEOVER);
+                                    transaction.commit();
 
-                                    Intent gameOverIntent = new Intent(Slt.this, GameOver.class);
-                                    startActivity(gameOverIntent);
-                                    finish();
+
+                                    //finish();
 
                                 }
                             }
@@ -83,15 +111,17 @@ public class Slt extends Activity {
                 }
             }
         });
+
         jp = new JuegoProcess(step);
         jp.start();
+        return juegoView;
 
     }
 
-    public Activity getActivity() {
-
-        return this.getActivity();
-    }
+//	public Activity getActivity() {
+//
+//		return this.getActivity();
+//	}
 
     public void setProbability(double prob) {
         this.prob = prob;
@@ -108,10 +138,10 @@ public class Slt extends Activity {
 
             bombipos = bundle.getInt("newPosition");
             if (Math.random() < prob) {
-                ima.setItem(bombipos, bombi.getBombi());
+                ima.setItem(bombipos, bombi.getEnchufe());
                 posbombi = true;
             } else {
-                ima.setItem(bombipos, bombi.getMariposa());
+                ima.setItem(bombipos, bombi.getBombi());
 
                 posbombi = false;
             }

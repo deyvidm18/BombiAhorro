@@ -24,11 +24,6 @@ public class Calculate extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.calculate_fragment, container, false);
-        calculateDetail = new CalculateDetail();
-        transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.framelayout_contenedor_detalle, calculateDetail, CALCULATE_DETAIL);
-        transaction.addToBackStack(CALCULATE_DETAIL);
-        transaction.commit();
         calculateList = new CalculateList();
         transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.framelayout_contenedor_list, calculateList, CALCULATE_LIST);

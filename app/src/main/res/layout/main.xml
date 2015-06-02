@@ -1,45 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widget32"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/background2">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_fondo"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/widget28"
-        android:layout_width="295dp"
-        android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical">
+    <Button
+        android:id="@+id/StartGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/game_juego"
+        android:gravity="center"></Button>
 
-        <Button
-            android:id="@+id/StartGame"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@layout/startgame_button"></Button>
+    <Button
+        android:id="@+id/Puntajes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/game_puntajes"
+        android:gravity="center"></Button>
 
-        <TextView
-            android:id="@+id/widget34"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"></TextView>
+    <Button
+        android:id="@+id/Help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/game_ayuda"></Button>
 
-        <Button
-            android:id="@+id/Help"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@layout/help_button"></Button>
-
-        <TextView
-            android:id="@+id/widget38"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"></TextView>
-
-        <Button
-            android:id="@+id/Credits"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@layout/credits_button"></Button>
-    </LinearLayout>
-
-</RelativeLayout>
+    <Button
+        android:id="@+id/Credits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/game_creditos"></Button>
+</LinearLayout>

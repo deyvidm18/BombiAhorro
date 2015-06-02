@@ -21,7 +21,7 @@ public class TipsActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calcular);
+        setContentView(R.layout.fragment_tips);
         ActionBar actionBar = getActionBar();
         actionBar.setTitle(R.string.tips);
 
@@ -47,29 +47,29 @@ public class TipsActivity extends MainActivity {
             View rootView = inflater.inflate(layoutFragment, container, false);
             switch (position) {
                 case 0:
-                    rootView.setBackground(this.getResources().getDrawable(R.drawable.background_tips0));
+                    rootView.setBackground(this.getResources().getDrawable(R.drawable.tips_background0));
                     rootView.findViewById(R.id.flechaizq).setVisibility(View.INVISIBLE);
                     break;
                 case 1:
-                    rootView.setBackground(this.getResources().getDrawable(R.drawable.background_tips1));
+                    rootView.setBackground(this.getResources().getDrawable(R.drawable.tips_background1));
                     break;
                 case 2:
-                    rootView.setBackground(this.getResources().getDrawable(R.drawable.background_tips2));
+                    rootView.setBackground(this.getResources().getDrawable(R.drawable.tips_background2));
                     break;
                 case 3:
-                    rootView.setBackground(this.getResources().getDrawable(R.drawable.background_tips3));
+                    rootView.setBackground(this.getResources().getDrawable(R.drawable.tips_background3));
                     break;
                 case 4:
-                    rootView.setBackground(this.getResources().getDrawable(R.drawable.background_tips4));
+                    rootView.setBackground(this.getResources().getDrawable(R.drawable.tips_background4));
                     break;
                 case 5:
-                    rootView.setBackground(this.getResources().getDrawable(R.drawable.background_tips5));
+                    rootView.setBackground(this.getResources().getDrawable(R.drawable.tips_background5));
                     break;
                 case 6:
-                    rootView.setBackground(this.getResources().getDrawable(R.drawable.background_tips6));
+                    rootView.setBackground(this.getResources().getDrawable(R.drawable.tips_background6));
                     break;
                 case 7:
-                    rootView.setBackground(this.getResources().getDrawable(R.drawable.background_tips7));
+                    rootView.setBackground(this.getResources().getDrawable(R.drawable.tips_background7));
                     rootView.findViewById(R.id.flechader).setVisibility(View.INVISIBLE);
                     break;
             }

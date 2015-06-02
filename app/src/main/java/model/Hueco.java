@@ -8,7 +8,7 @@ public class Hueco {
 
     public Hueco() {
 
-        hueco = R.drawable.hoyo;
+        hueco = R.drawable.game_hoyo;
     }
 
     public int getHueco() {

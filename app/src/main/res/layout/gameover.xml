@@ -3,7 +3,7 @@
     android:id="@+id/widget32"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/backgroundgameover">
+    android:background="@drawable/game_fondo">
 
     <Button
         android:id="@+id/restart"
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="false"
-        android:background="@drawable/restart"></Button>
+        android:background="@drawable/game_reintentar"></Button>
 
     <Button
         android:id="@+id/quit"
@@ -19,6 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:background="@drawable/quit"></Button>
+        android:background="@drawable/game_salir"></Button>
 
 </RelativeLayout>

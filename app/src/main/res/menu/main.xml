@@ -1,26 +1,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_calculate"
-        android:icon="@drawable/icon_calcula"
+        android:icon="@drawable/menu_icon_calculate"
         android:showAsAction="always"
         android:title="@string/menu_calculate" />
     <item
         android:id="@+id/menu_history"
-        android:icon="@drawable/icon_reloj"
+        android:icon="@drawable/menu_icon_reloj"
         android:showAsAction="always"
         android:title="@string/menu_history"
         android:visible="true" />
 
     <item
         android:id="@+id/menu_tips"
-        android:icon="@drawable/icon_tips"
+        android:icon="@drawable/menu_icon_tips"
         android:showAsAction="always"
         android:title="@string/menu_tips"
         android:visible="true" />
 
     <item
         android:id="@+id/menu_game"
-        android:icon="@drawable/icon_calcula"
+        android:icon="@drawable/menu_icon_game"
         android:showAsAction="always"
         android:title="@string/menu_game"
         android:visible="true" />

@@ -13,8 +13,8 @@ public class ImageAdapter extends BaseAdapter implements View.OnClickListener {
 
     private Context mContext;
     // references to our images
-    private Integer[] mThumbIds = {R.drawable.hoyo, R.drawable.hoyo, R.drawable.hoyo, R.drawable.hoyo,
-            R.drawable.hoyo, R.drawable.hoyo, R.drawable.hoyo, R.drawable.hoyo, R.drawable.hoyo
+    private Integer[] mThumbIds = {R.drawable.game_hoyo, R.drawable.game_hoyo, R.drawable.game_hoyo, R.drawable.game_hoyo,
+            R.drawable.game_hoyo, R.drawable.game_hoyo, R.drawable.game_hoyo, R.drawable.game_hoyo, R.drawable.game_hoyo
 
     };
 

@@ -4,15 +4,18 @@ import com.example.bombiahorro.R;
 
 public class Bombillo {
 
+    private int enchufe;
     private int bombi;
-    private int mariposa;
-    private int golpe;
 
     public Bombillo() {
 
-        bombi = R.drawable.bombihueco;
-        mariposa = R.drawable.mariposa;
-        golpe = R.drawable.golpe;
+        enchufe = R.drawable.game_enchufe;
+        bombi = R.drawable.game_bombi;
+    }
+
+    public int getEnchufe() {
+
+        return enchufe;
     }
 
     public int getBombi() {
@@ -20,14 +23,5 @@ public class Bombillo {
         return bombi;
     }
 
-    public int getMariposa() {
-
-        return mariposa;
-    }
-
-    public int getGolpe() {
-
-        return golpe;
-    }
 
 }

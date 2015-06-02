@@ -18,46 +18,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_CONSUMPTION = "consumption";
     public static final String KEY_DRAWABLE = "drawable";
+    // GAME Table - column names
+    public static final String KEY_SCORE = "score";
+    // HISTORY Table - column names
+    public static final String KEY_RESULT_CONSUMPTION = "result_consumption";
     // Table Create Statements
     // Calculate table create statement
     private static final String CREATE_TABLE_CALCULATE = "CREATE TABLE " + TABLE_CALCULATE + "(" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT," + KEY_DESCRIPTION + " TEXT,"
             + KEY_CONSUMPTION + " REAL," + KEY_DRAWABLE + " TEXT," + KEY_CREATED_AT
             + " DATETIME DEFAULT CURRENT_TIMESTAMP" + ");";
+    // GAME INSERT
+    // Calculate table insert statement
+    private static final String INSERT_TABLE_GAME = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('10');";
+    private static final String INSERT_TABLE_GAME1 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('9'); ";
+    private static final String INSERT_TABLE_GAME2 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('3'); ";
+    private static final String INSERT_TABLE_GAME3 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('3'); ";
+    private static final String INSERT_TABLE_GAME4 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('4'); ";
+    private static final String INSERT_TABLE_GAME5 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('5'); ";
+    private static final String INSERT_TABLE_GAME6 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('8'); ";
+    private static final String INSERT_TABLE_GAME7 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('7'); ";
+    private static final String INSERT_TABLE_GAME8 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('7'); ";
+    private static final String INSERT_TABLE_GAME9 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('6'); ";
+    private static final String INSERT_TABLE_GAME10 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('0'); ";
+    private static final String INSERT_TABLE_GAME11 = "INSERT INTO " + TABLE_GAME + " (" + KEY_SCORE + ") VALUES ('0'); ";
     // Calculate table insert statement
     private static final String INSERT_TABLE_CALCULATE = "INSERT INTO " + TABLE_CALCULATE + " (" + KEY_NAME + ","
             + KEY_DESCRIPTION + "," + KEY_CONSUMPTION + "," + KEY_DRAWABLE
-            + ") VALUES ('Bombillo Ahorrador', 'Bombillo Ahorrador', '500','icon_ahorrador'),"
-            + "('Aire Acondicionador', 'Aire Acondicionador', '700','icon_aire'),"
-            + "('Bombillo', 'Bombillo', '1000','icon_bombillo'),"
-            + "('Cafetera', 'Cafetera', '100','icon_cafetera'),"
-            + "('Cocina', 'Cocina', '200','icon_cocina'),"
-            + "('Computadora', 'Computadora', '200','icon_compu'),"
-            + "('DVD', 'DVD', '200','icon_dvd'),"
-            + "('Lavadora', 'Lavadora', '200','icon_lavadora'),"
-            + "('Licuadora', 'Licuadora', '200','icon_licuadora'),"
-            + "('Microondas', 'Microondas', '200','icon_micro'),"
-            + "('Nevera', 'Nevera', '200','icon_nevera'),"
-            + "('Consola de Juegos', 'Consola de Juegos', '200','icon_nintendo'),"
-            + "('Plancha', 'Plancha', '200','icon_plancha'),"
-            + "('Secador', 'Secador', '200','icon_secador'),"
-            + "('Secadora', 'Secadora', '200','icon_secadora'),"
-            + "('Equipo de Sonido', 'Equipo de Sonido', '200','icon_sonido'),"
-            + "('Televisor', 'Televisor', '200','icon_tele')";
-    // HISTORY Table - column names
-    public static final String KEY_RESULT_CONSUMPTION = "result_consumption";
+            + ") VALUES ('Bombillo Ahorrador', 'Bombillo Ahorrador', '500','calculate_ahorrador'),"
+            + "('Aire Acondicionador', 'Aire Acondicionador', '700','calculate_aire'),"
+            + "('Bombillo', 'Bombillo', '1000','calculate_bombillo'),"
+            + "('Cafetera', 'Cafetera', '100','calculate_cafetera'),"
+            + "('Cocina', 'Cocina', '200','calculate_cocina'),"
+            + "('Computadora', 'Computadora', '200','calculate_compu'),"
+            + "('DVD', 'DVD', '200','calculate_dvd'),"
+            + "('Lavadora', 'Lavadora', '200','calculate_lavadora'),"
+            + "('Licuadora', 'Licuadora', '200','calculate_licuadora'),"
+            + "('Microondas', 'Microondas', '200','calculate_micro'),"
+            + "('Nevera', 'Nevera', '200','calculate_nevera'),"
+            + "('Consola de Juegos', 'Consola de Juegos', '200','calculate_nintendo'),"
+            + "('Plancha', 'Plancha', '200','calculate_plancha'),"
+            + "('Secador', 'Secador', '200','calculate_secador'),"
+            + "('Secadora', 'Secadora', '200','calculate_secadora'),"
+            + "('Equipo de Sonido', 'Equipo de Sonido', '200','calculate_sonido'),"
+            + "('Televisor', 'Televisor', '200','calculate_tele')";
     // History table create statement
     private static final String CREATE_TABLE_HISTORY = "CREATE TABLE " + TABLE_HISTORY + "(" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_RESULT_CONSUMPTION + " REAL," + KEY_CREATED_AT
             + " DATETIME DEFAULT CURRENT_TIMESTAMP" + ")";
-    // GAME Table - column names
-    public static final String KEY_SCORE = "score";
     // Game table create statement
     private static final String CREATE_TABLE_GAME = "CREATE TABLE " + TABLE_GAME + "(" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_SCORE + " REAL," + KEY_CREATED_AT
             + " DATETIME DEFAULT CURRENT_TIMESTAMP" + ")";
     // Database Version
-    private static final int DATABASE_VERSION = 14;
+    private static final int DATABASE_VERSION = 15;
     // Database Name
     private static final String DATABASE_NAME = "bombi_ahorro";
 
