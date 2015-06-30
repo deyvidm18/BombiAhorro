@@ -9,8 +9,11 @@
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:text="Realizado por Brayan Antequero y Deyvid Martinez."
+        android:textAlignment="center"
         android:textColor="#E7AB4D"
-        android:textSize="15px"
-        android:textStyle="bold"></TextView>
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="sans"></TextView>
 </RelativeLayout>

@@ -47,12 +47,16 @@ public class Slt extends Fragment {
 
         //setContentView(R.layout.startgame);
 
-        View juegoView = inflater.inflate(R.layout.startgame, container,
+        final View juegoView = inflater.inflate(R.layout.startgame, container,
                 false);
+
 
 
         final TextView scoreTview = (TextView) juegoView.findViewById(R.id.Score);
         final TextView lifeTview = (TextView) juegoView.findViewById(R.id.Life);
+//		final ImageView vida3 = (ImageView) juegoView.findViewById(R.id.corazon3);
+//		final ImageView vida2 = (ImageView) juegoView.findViewById(R.id.corazon2);
+//		final ImageView vida1 = (ImageView) juegoView.findViewById(R.id.corazon1);
         final GridView gw = (GridView) juegoView.findViewById(R.id.gridview);
         step = new ChangeImage();
         Update = new Handler();
@@ -72,7 +76,7 @@ public class Slt extends Fragment {
 
                             if (posbombi == true) {
                                 puntuacion = puntuacion + 1;
-                                scoreTview.setText("Score: " + puntuacion);
+                                scoreTview.setText("Puntos: " + puntuacion);
                                 scoreTview.refreshDrawableState();
                                 if (puntuacion == 10) {
                                     setProbability(0.60);
@@ -83,9 +87,19 @@ public class Slt extends Fragment {
                                     jp.setTimeToWait(500);
                                 }
                             } else {
+                                switch (vidas) {
+                                    case 3:
+                                        juegoView.findViewById(R.id.corazon3).setVisibility(View.INVISIBLE);
+                                        break;
+                                    case 2:
+                                        juegoView.findViewById(R.id.corazon2).setVisibility(View.INVISIBLE);
+                                        break;
+                                    case 1:
+                                        juegoView.findViewById(R.id.corazon1).setVisibility(View.INVISIBLE);
+                                        break;
+
+                                }
                                 vidas = vidas - 1;
-                                lifeTview.setText("Vida: " + vidas);
-                                lifeTview.refreshDrawableState();
                                 if (vidas == 0) {
                                     jp.stopThread();
                                     gameDAO.Agregar(puntuacion);
@@ -99,6 +113,7 @@ public class Slt extends Fragment {
                                             MainActivity.GAMEOVER);
                                     transaction.addToBackStack(MainActivity.GAMEOVER);
                                     transaction.commit();
+
 
 
                                     //finish();
@@ -138,10 +153,10 @@ public class Slt extends Fragment {
 
             bombipos = bundle.getInt("newPosition");
             if (Math.random() < prob) {
-                ima.setItem(bombipos, bombi.getEnchufe());
+                ima.setItem(bombipos, bombi.getBombi());
                 posbombi = true;
             } else {
-                ima.setItem(bombipos, bombi.getBombi());
+                ima.setItem(bombipos, bombi.getEnchufe());
 
                 posbombi = false;
             }

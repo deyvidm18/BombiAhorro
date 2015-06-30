@@ -18,7 +18,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="hello">Hello World</string>
     <string name="Score">Puntos: 0 </string>
-    <string name="Life">Vidas: 3 </string>
+    <string name="Life">Vidas: </string>
     <string name="restart">reiniciar</string>
     <string name="quit">salir</string>
     <string name="juego">juego</string>

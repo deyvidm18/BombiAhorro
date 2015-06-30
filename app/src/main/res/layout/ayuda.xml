@@ -9,9 +9,11 @@
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Debes tocar a bombillin en los hoyos, cada vez que sea aplastado tendras un punto.,
-tienes 3 vidas para ello, si por el contrario tocas a la mariposa perderás una vida, Juega!!!"
+        android:layout_centerInParent="true"
+        android:text="Debes tocar al CONSUMIDOR en los hoyos, cada vez que sea aplastado tendras un punto, tienes 3 vidas para ello, si por el contrario tocas a BOMBILLIN perderás una vida, Juega!!!"
+        android:textAlignment="center"
         android:textColor="#E7AB4D"
-        android:textSize="15sp"
-        android:textStyle="bold"></TextView>
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="sans"></TextView>
 </RelativeLayout>

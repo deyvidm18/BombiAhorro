@@ -37,7 +37,7 @@ public class Puntajes extends Fragment {
         aux_puntuaciones = gameDAO.mejores10();
 
         for (int k = 0; k <= 9; k++) {
-            datos[k] = Integer.toString(aux_puntuaciones[k]);
+            datos[k] = ((Integer.toString(aux_puntuaciones[k])) + "  Puntos");
             datos2.add(Integer.toString(aux_puntuaciones[k]) + "  Puntos");
 
             System.out.println("arreglo de strings" + datos[k]);
@@ -45,8 +45,9 @@ public class Puntajes extends Fragment {
         }
         ListView prueba = (ListView) puntajeView.findViewById(R.id.punt);
         //ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(getActivity(), R.id.prueba_final, datos);
-        ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(getActivity(), R.layout.listprueba, datos2);
+        ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(getActivity(), R.layout.listprueba, datos);
         prueba.setAdapter(adaptador1);
+        //prueba.
         return puntajeView;
 
     }

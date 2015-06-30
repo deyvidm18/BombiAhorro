@@ -57,26 +57,26 @@ public class GameDAO {
         int[] aux_punt = new int[10];
         aux_punt = mejores10();
         open();
-        int tamaÒo = aux_punt.length;
-        System.out.println("el tamaÒo es de " + tamaÒo);
-        for (int j = 0; j <= tamaÒo - 1; j++) {
+        int size = aux_punt.length;
+        System.out.println("el size es de " + size);
+        for (int j = 0; j <= size - 1; j++) {
             if (aux_punt[j] < puntuacion) {
                 ContentValues dataToInsert = new ContentValues();
                 dataToInsert.put("score", puntuacion);
                 //dataToInsert.put(allColumns, puntuacion);
-                database.update(DatabaseHelper.TABLE_GAME, dataToInsert, "score=" + aux_punt[tamaÒo - 1], null);
+                database.update(DatabaseHelper.TABLE_GAME, dataToInsert, "score=" + aux_punt[size - 1], null);
 
 //				database.db
 //				database.execSQL("UPDATE DatabaseHelper.TABLE_GAME SET nombre='usunuevo' WHERE codigo=6 ");
-                j = tamaÒo;
-                //aux_punt[tamaÒo-1] = puntuacion;
+                j = size;
+                //aux_punt[size-1] = puntuacion;
                 //System.out.println("arreglo de puntuaiones agregadas"+aux_punt[j]);
                 //Arrays.sort(aux_punt, Collections.reverseOrder());
             }
         }
         aux_punt = mejores10();
         close();
-        for (int k = 0; k <= tamaÒo - 1; k++) {
+        for (int k = 0; k <= size - 1; k++) {
             System.out.println("VALORES FINALES BD" + aux_punt[k]);
         }
     }
