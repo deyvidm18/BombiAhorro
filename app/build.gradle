@@ -19,6 +19,12 @@ android {
     }
 }
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     compile 'com.android.support:support-v4:18.0.0'
+    compile 'com.android.support:support-v13:18.0.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.3'
 }

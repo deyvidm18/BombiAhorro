@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
     <string name="menu_calculate">Calcular</string>
     <string name="menu_history">Historial</string>
     <string name="menu_tips">Tips</string>
+    <string name="calculate_pop_count">Cantidad</string>
+    <string name="calculate_pop_hours">Horas de uso</string>
     <string name="menu_game">Juego</string>
-    <string name="app_name"></string>
+    <string name="app_name">BombiAhorro</string>
     <string name="action_settings">Settings</string>
     <string name="title_section1">Iluminación</string>
     <string name="title_section2">Refrigeración</string>
@@ -22,6 +26,8 @@
     <string name="restart">reiniciar</string>
     <string name="quit">salir</string>
     <string name="juego">juego</string>
+    <string name="noDataText">"No existen registros de consumo"</string>
+    <string name="consumption">"Consumo"</string>
     <string name="title_activity_history">HistoryActivity</string>
 
 </resources>

@@ -4,12 +4,12 @@
         android:icon="@drawable/menu_icon_calculate"
         android:showAsAction="always"
         android:title="@string/menu_calculate" />
+
     <item
         android:id="@+id/menu_history"
         android:icon="@drawable/menu_icon_reloj"
         android:showAsAction="always"
-        android:title="@string/menu_history"
-        android:visible="true" />
+        android:title="@string/menu_history" />
 
     <item
         android:id="@+id/menu_tips"

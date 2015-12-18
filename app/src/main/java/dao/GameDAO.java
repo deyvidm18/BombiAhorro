@@ -3,28 +3,16 @@ package dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 
 import database.DatabaseHelper;
 
-public class GameDAO {
-    private SQLiteDatabase database;
-    private DatabaseHelper dbHelper;
+public class GameDAO extends SuperDAO {
+
     private String[] allColumns = {DatabaseHelper.KEY_SCORE};
     private String Orden = "10";
 
-
     public GameDAO(Context context) {
-        dbHelper = new DatabaseHelper(context);
-    }
-
-    private void open() throws SQLException {
-        database = dbHelper.getWritableDatabase();
-    }
-
-    private void close() {
-        dbHelper.close();
+        super(context);
     }
 
     public int[] mejores10() {
@@ -58,7 +46,7 @@ public class GameDAO {
         aux_punt = mejores10();
         open();
         int size = aux_punt.length;
-        System.out.println("el size es de " + size);
+        System.out.println("el tamaño es de " + size);
         for (int j = 0; j <= size - 1; j++) {
             if (aux_punt[j] < puntuacion) {
                 ContentValues dataToInsert = new ContentValues();
@@ -69,7 +57,7 @@ public class GameDAO {
 //				database.db
 //				database.execSQL("UPDATE DatabaseHelper.TABLE_GAME SET nombre='usunuevo' WHERE codigo=6 ");
                 j = size;
-                //aux_punt[size-1] = puntuacion;
+                //aux_punt[tamaÒo-1] = puntuacion;
                 //System.out.println("arreglo de puntuaiones agregadas"+aux_punt[j]);
                 //Arrays.sort(aux_punt, Collections.reverseOrder());
             }

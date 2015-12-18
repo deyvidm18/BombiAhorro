@@ -1,11 +1,9 @@
 package model;
 
-import java.sql.Date;
-
 public class HistoryModel {
     private int id;
     private float resultConsumption;
-    private Date created;
+    private String created;
 
     public int getId() {
         return id;
@@ -23,11 +21,11 @@ public class HistoryModel {
         this.resultConsumption = resultConsumption;
     }
 
-    public Date getCreated() {
+    public String getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(String created) {
         this.created = created;
     }
 

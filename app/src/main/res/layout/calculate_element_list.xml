@@ -42,12 +42,12 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="5dip"
         android:gravity="right"
-        android:text="5:45"
+        android:text="0.0"
         android:textColor="#ff0417ff"
         android:textSize="14dip"
         android:textStyle="bold" />
 
-    <CheckBox
+    <view.CalculateCheckbox
         android:id="@+id/calculate_item_checkBox"
         style="@style/AppTheme"
         android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package activities;
 
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -8,36 +9,33 @@ import android.view.MenuItem;
 
 import com.example.bombiahorro.R;
 
-import fragment.Calculate;
-import fragment.Game;
-import fragment.History;
-import fragment.ScreenLoader;
-import fragment.Tips;
+import fragment.CalculateFragment;
+import fragment.GameFragment;
+import fragment.HistoryFragment;
+import fragment.TipsFragment;
 
 public class MainActivity extends FragmentActivity {
 
-    public static final String CALCULATE = "Calculate";
+    public static final String CALCULATE = "CalculateFragment";
     public static final String AYUDA = "Help";
     public static final String CREDITS = "Credits";
-    public static final String TIPS = "Tips";
-    public static final String HISTORY = "History";
-    public static final String GAME = "Game";
-    public static final String SCREEN_LOADER = "ScreenLoader";
+    public static final String TIPS = "TipsFragment";
+    public static final String HISTORY = "HistoryFragment";
+    public static final String GAME = "GameFragment";
     public static final String JUEGO = "Juego";
     public static final String GAMEOVER = "Gameover";
     public static final String PUNTAJES = "Puntaje";
-    public Calculate calculateFragment;
-    public Tips tipsFragment;
-    public History historyFragment;
-    public Game gameFragment;
+    public CalculateFragment calculateFragment;
+    public TipsFragment tipsFragment;
+    public HistoryFragment historyFragment;
+    public GameFragment gameFragment;
     public Ayuda ayudaFragment;
     public Creditos creditoFragment;
     public Slt juegoFragment;
     public GameOver gameoverFragment;
     public Puntajes puntajeFragment;
-    FragmentTransaction transaction;
-    private ScreenLoader screenLoaderFragment;
-    private ScreenLoaderActivity sla;
+    public FragmentTransaction transaction;
+    private boolean isFirstTime = true;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -49,7 +47,6 @@ public class MainActivity extends FragmentActivity {
                     transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.fragmentPrincipal, calculateFragment,
                             CALCULATE);
-                    transaction.addToBackStack(CALCULATE);
                     transaction.commit();
                 }
                 break;
@@ -61,7 +58,6 @@ public class MainActivity extends FragmentActivity {
                         .isVisible()) {
                     transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.fragmentPrincipal, gameFragment, GAME);
-                    transaction.addToBackStack(GAME);
                     transaction.commit();
                 }
                 break;
@@ -71,8 +67,7 @@ public class MainActivity extends FragmentActivity {
                         || !getSupportFragmentManager().findFragmentByTag(TIPS)
                         .isVisible()) {
                     transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragmentPrincipal, tipsFragment, TIPS);
-                    transaction.addToBackStack(TIPS);
+                    transaction.replace(R.id.fragmentPrincipal, TipsFragment.getInstance(), TIPS);
                     transaction.commit();
 
                 }
@@ -85,7 +80,6 @@ public class MainActivity extends FragmentActivity {
                     transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.fragmentPrincipal, historyFragment,
                             HISTORY);
-                    transaction.addToBackStack(HISTORY);
                     transaction.commit();
                 }
                 break;
@@ -102,11 +96,12 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        calculateFragment = new Calculate();
-        tipsFragment = new Tips();
-        gameFragment = new Game();
-        historyFragment = new History();
+        calculateFragment = new CalculateFragment();
+        tipsFragment = new TipsFragment();
+        gameFragment = new GameFragment();
+        historyFragment = new HistoryFragment();
         ayudaFragment = new Ayuda();
         creditoFragment = new Creditos();
         juegoFragment = new Slt();
@@ -114,26 +109,10 @@ public class MainActivity extends FragmentActivity {
         puntajeFragment = new Puntajes();
         setContentView(R.layout.main_activity);
         transaction = getSupportFragmentManager().beginTransaction();
-        screenLoaderFragment = new ScreenLoader();
-        transaction.add(R.id.fragmentPrincipal, screenLoaderFragment,
-                SCREEN_LOADER).commit();
-        Thread screenTimer = new Thread() {
-            public void run() {
-                try {
-                    sleep(3000);
+        transaction.replace(R.id.fragmentPrincipal, new CalculateFragment());
+        transaction.commit();
+        isFirstTime = false;
 
-                    transaction = getSupportFragmentManager()
-                            .beginTransaction();
-                    transaction.replace(R.id.fragmentPrincipal,
-                            calculateFragment, CALCULATE);
-                    transaction.addToBackStack(CALCULATE);
-                    transaction.commit();
-                } catch (InterruptedException e) {
-                    // TODO Manejo de Excepciones
-                }
-            }
-        };
-        screenTimer.start();
     }
 
 }

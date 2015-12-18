@@ -8,19 +8,18 @@ public class JuegoProcess extends Thread {
 
     public final static int LOWERBOUND = 0;
     public final static int UPPERBOUND = 8;
-
+    public int auxposition = 100;
     private int upperBound;
     private int timeWait;
     private Handler handler;
     private GameState gstate;
-    ;
 
     public JuegoProcess(Handler handler) {
         super();
         this.upperBound = UPPERBOUND;
         gstate = GameState.RUNNING;
         this.handler = handler;
-        this.timeWait = 1000;
+        this.timeWait = 2000;
     }
 
     @Override
@@ -31,14 +30,18 @@ public class JuegoProcess extends Thread {
             int newPosition;
 
             newPosition = (int) (Math.random() * (upperBound + 1));
+            if (newPosition != auxposition) {
 
-            nextStep(newPosition);
+                nextStep(newPosition);
+                auxposition = newPosition;
 
-            try {
-                sleep(timeWait);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+
+                try {
+                    sleep(timeWait);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         }
     }

@@ -4,31 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/game_fondo"
-    android:orientation="vertical">
-    <Button
-        android:id="@+id/StartGame"
+    android:orientation="horizontal">
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/game_juego"
-        android:gravity="right"></Button>
-    <Button
-        android:id="@+id/Puntajes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/game_puntajes"
-        android:gravity="center"></Button>
-    <Button
-        android:id="@+id/Help"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/game_ayuda"></Button>
-    <Button
-        android:id="@+id/Credits"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/game_creditos"></Button>
+        android:layout_height="match_parent"
+        android:paddingLeft="30dip"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/StartGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/game_juego"
+            android:gravity="right"></Button>
+
+        <Button
+            android:id="@+id/Puntajes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/game_puntajes"
+            android:gravity="center"></Button>
+
+        <Button
+            android:id="@+id/Help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/game_ayuda"></Button>
+
+        <Button
+            android:id="@+id/Credits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/game_creditos"></Button>
+    </LinearLayout>
 </LinearLayout>

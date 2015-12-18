@@ -18,8 +18,8 @@ import com.example.bombiahorro.R;
 import dao.GameDAO;
 import logic.ImageAdapter;
 import logic.JuegoProcess;
-import model.Bombillo;
-import model.Hueco;
+import model.BombilloModel;
+import model.HuecoModel;
 
 public class Slt extends Fragment {
 
@@ -29,12 +29,18 @@ public class Slt extends Fragment {
     private int puntuacion = 0;
     private int vidas = 3;
     private Handler step;
+    private Handler step2;
+    private Handler step3;
     private Handler Update;
+    private Handler Update2;
     private JuegoProcess jp;
+    private JuegoProcess pruebahilo;
+    private JuegoProcess pruebahilo2;
     private boolean posbombi = true;
-    private Bombillo bombi = new Bombillo();
-    private double prob = 0.7;
+    private BombilloModel bombi = new BombilloModel();
+    private double prob = 0.60;
     private GameDAO gameDAO;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +57,6 @@ public class Slt extends Fragment {
                 false);
 
 
-
         final TextView scoreTview = (TextView) juegoView.findViewById(R.id.Score);
         final TextView lifeTview = (TextView) juegoView.findViewById(R.id.Life);
 //		final ImageView vida3 = (ImageView) juegoView.findViewById(R.id.corazon3);
@@ -59,7 +64,10 @@ public class Slt extends Fragment {
 //		final ImageView vida1 = (ImageView) juegoView.findViewById(R.id.corazon1);
         final GridView gw = (GridView) juegoView.findViewById(R.id.gridview);
         step = new ChangeImage();
+        step2 = new ChangeImage();
+        step3 = new ChangeImage();
         Update = new Handler();
+        Update2 = new Handler();
         ima = new ImageAdapter(getActivity());
         gw.setAdapter(ima);
 
@@ -79,12 +87,17 @@ public class Slt extends Fragment {
                                 scoreTview.setText("Puntos: " + puntuacion);
                                 scoreTview.refreshDrawableState();
                                 if (puntuacion == 10) {
-                                    setProbability(0.60);
-                                    jp.setTimeToWait(700);
+                                    setProbability(0.50);
+                                    pruebahilo = new JuegoProcess(step2);
+                                    pruebahilo.start();
+                                    //jp.setTimeToWait(400);
 
+                                    //aqui se debe mostrar varios muÒecos a la vez
                                 } else if (puntuacion == 20) {
-                                    setProbability(0.45);
-                                    jp.setTimeToWait(500);
+                                    pruebahilo2 = new JuegoProcess(step3);
+                                    pruebahilo2.start();
+                                    setProbability(0.48);
+                                    //jp.setTimeToWait(300);
                                 }
                             } else {
                                 switch (vidas) {
@@ -101,9 +114,14 @@ public class Slt extends Fragment {
                                 }
                                 vidas = vidas - 1;
                                 if (vidas == 0) {
-                                    jp.stopThread();
+                                    if (jp != null && jp.isAlive())
+                                        jp.stopThread();
+                                    if (pruebahilo != null && pruebahilo.isAlive())
+                                        pruebahilo.stopThread();
+                                    if (pruebahilo2 != null && pruebahilo2.isAlive())
+                                        pruebahilo2.stopThread();
                                     gameDAO.Agregar(puntuacion);
-                                    //aqui se deberia guardar la ultima puntacion y aÒadir a la lista de los 10 ptjes mas altos
+                                    //aqui se deberia guardar la ultima puntacion y a√íadir a la lista de los 10 ptjes mas altos
                                     //									Intent gameOverIntent = new Intent(Slt.this, GameOver.class);
                                     //									startActivity(gameOverIntent);
                                     transaction = getActivity().getSupportFragmentManager()
@@ -113,7 +131,6 @@ public class Slt extends Fragment {
                                             MainActivity.GAMEOVER);
                                     transaction.addToBackStack(MainActivity.GAMEOVER);
                                     transaction.commit();
-
 
 
                                     //finish();
@@ -144,7 +161,7 @@ public class Slt extends Fragment {
 
     private class ChangeImage extends Handler {
 
-        Hueco hueco = new Hueco();
+        HuecoModel hueco = new HuecoModel();
         private int posanterior = -1;
 
         @Override

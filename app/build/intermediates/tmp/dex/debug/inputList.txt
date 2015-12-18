@@ -1,2 +1,4 @@
 /Users/mac/AndroidstudioProjects/BombiAhorro/app/build/intermediates/classes/debug
-/Users/mac/AndroidstudioProjects/BombiAhorro/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0-939011ab5992f7d9bd0a3356c098dcbb11a9f5aa.jar
+/Users/mac/AndroidstudioProjects/BombiAhorro/app/build/intermediates/pre-dexed/debug/support-v13-18.0.0-a5a7ef795dbe60d2209566abd1f3dc22c7e330cd.jar
+/Users/mac/AndroidstudioProjects/BombiAhorro/app/build/intermediates/pre-dexed/debug/MPAndroidChart-v2.1.3-6d33b4ea7e525130299952bd4f8a174ee714aaeb.jar
+/Users/mac/AndroidstudioProjects/BombiAhorro/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0-f5bd42a4888d2067828e478c3ac9d9175725618a.jar

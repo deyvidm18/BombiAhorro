@@ -2,8 +2,6 @@ package dao;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,24 +9,14 @@ import java.util.List;
 import database.DatabaseHelper;
 import model.CalculateModel;
 
-public class CalculateDAO {
+public class CalculateDAO extends SuperDAO {
 
     // Database fields
-    private SQLiteDatabase database;
-    private DatabaseHelper dbHelper;
     private String[] allColumns = {DatabaseHelper.KEY_ID, DatabaseHelper.KEY_CREATED_AT, DatabaseHelper.KEY_NAME,
             DatabaseHelper.KEY_DESCRIPTION, DatabaseHelper.KEY_CONSUMPTION, DatabaseHelper.KEY_DRAWABLE};
 
     public CalculateDAO(Context context) {
-        dbHelper = new DatabaseHelper(context);
-    }
-
-    private void open() throws SQLException {
-        database = dbHelper.getWritableDatabase();
-    }
-
-    private void close() {
-        dbHelper.close();
+        super(context);
     }
 
     public List<CalculateModel> getAllCalculateModel() {
